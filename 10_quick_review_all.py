@@ -108,10 +108,51 @@ print(my_sum_and_my_count(items))
 
 # 5. Advanced Strings
 
+# String Substitue -- see more on 30_days_cheet_sheet
+
 name_list = ['luka','lumi','apple','lily','gb']
 for i in name_list:
 	'My name is {name}'.format(name=i)
 # -> all the names in this format
+"This is a argument {0} {1} {0} {1}".format('luka','apple')
+# -> This is a argument luka apple luka apple
+
+'Hi there %s! Thanks.' %('Luka')
+# -> Hi there Luka! Thanks!
+
+import datetime
+datetime.datetime.now()
+# check more on cheat sheet
+
+# 6. String Formatting Function
+
+print('+++++++++++++')
+default_names = ["Justin", "john", "Emilee", "Jim", "Ron", "Sandra", "veronica", "Whitney"]
+default_amounts = [123.32, 94.23, 124.32, 323.4, 23, 322.122323, 32.4, 99.99]
+
+unf_message = """Hi {name}! 
+Thank you for the purchase on {date}. 
+We hope you are exicted about using it. Just as a
+reminder the purcase total was ${total}.
+Have a great one!
+Team CFE
+"""
+
+def make_message(names, amounts):
+	i = 0
+	today = datetime.datetime.today() 
+	text = '{today.month}/{today.day}/{today.year}'.format(today=today)
+	for name in names:
+		new_amount = "%.2f"%(amounts[i]) # loop the amounts
+		name = name[0].upper() + name[1:].lower() # change the first one to Capital
+		new_msg = unf_message.format(
+			name = name,
+			date = text,
+			total = new_amount
+		)
+		i += 1
+		print(new_msg)
+make_message(default_names, default_amounts)
 
 
 
