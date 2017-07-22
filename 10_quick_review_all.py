@@ -154,7 +154,7 @@ def make_message(names, amounts):
 		print(new_msg)
 make_message(default_names, default_amounts)
 
-
+	
 
 
 
