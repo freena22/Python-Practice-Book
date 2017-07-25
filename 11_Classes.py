@@ -69,3 +69,44 @@ print('\n****Robots can do some work here.****\n')
 print("Robots have finished their work. So let's destroy them.")
 droid1.die()
 droid2.die()
+print('**********')
+# Inheritance (Base Class and Derived Classes)
+class Schoolmember:
+	def __init__(self,name,age):
+		self.name = name
+		self.age = age
+		print('Initialized Schoolmember:{}'.format(self.name))
+
+	def tell(self):
+		print('Name:{} Age:{}'.format(self.name, self.age))
+
+class Teacher(Schoolmember):
+	def __init__(self, name, age, salary):
+		Schoolmember.__init__(self,name,age)
+		self.salary = salary
+		print('Initialized Teacher: {}'.format(self.name))
+
+	def tell(self):
+		Schoolmember.tell(self)
+		print('Salary:{:d}'.format(self.salary))
+
+class Student(Schoolmember):
+	def __init__(self,name,age,marks):
+		Schoolmember.__init__(self,name,age)
+		self.marks = marks
+		print('Initialized Student:{}'.format(self.name))
+	def tell(self):
+		Schoolmember.tell(self)
+		print('Marks: "{:d}"'.format(self.marks))
+t = Teacher('Mrs.Bao', 30,80000)
+s = Student('Luka', 3, 99)
+
+print('***********')
+members = [t,s]
+for member in members:
+	member.tell() # call the tell() in subclass
+# -> Name:Mrs.Bao Age:30
+# -> Salary:80000
+# -> Name:Luka Age:3
+# -> Marks: "99"
+
