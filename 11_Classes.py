@@ -69,6 +69,7 @@ print('\n****Robots can do some work here.****\n')
 print("Robots have finished their work. So let's destroy them.")
 droid1.die()
 droid2.die()
+
 print('**********')
 # Inheritance (Base Class and Derived Classes)
 class Schoolmember:
@@ -109,4 +110,41 @@ for member in members:
 # -> Salary:80000
 # -> Name:Luka Age:3
 # -> Marks: "99"
+
+
+### arg & kwarg
+
+#arg = Positional Arguments
+#kwarg = Keyword Argument
+def some_func(arg_1, arg_2, kwarg_1=None, kwarg_2=None):
+	print(arg_1, arg_2)
+	if kwarg_1 != None:
+		print(kwarg_1)
+
+some_func('abc','car',kwarg_1='Not a big deal')
+# -> abc car Not a big deal
+
+# Another example
+email_address = 'duck@gmail.com'
+to_list = ['abc@gmail.com']
+from_list = ['ann@gmail.com','ddd@gmail.com']
+def send_email(email=email_address, to_list=to_list,from_list=from_list):
+	pass
+
+# properties
+# using parentheses is what makes the class callable
+class Dog():
+	name = 'luka'
+	color = 'golden'
+	noise = 'bark'
+	def get_color(self):
+		return self.color
+	@property  # make this function as a property
+	def make_noise(self):
+		return self.noise
+
+x = Dog()
+x.get_color() # -> 'golden'
+x.make_noise  # -> 'bark'
+
 
